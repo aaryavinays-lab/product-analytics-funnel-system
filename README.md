@@ -42,6 +42,8 @@ Result:
 
 ![Funnel Metrics](images/funnel_metrics.png)
 
+## Conversion Rates
+
 This query calculates key conversion metrics in the e-commerce purchase funnel.
 It aggregates user interaction events from the Events table and measures how users move through the stages of the purchase journey.
 The funnel consists of three main stages:
