@@ -42,3 +42,78 @@ Result:
 
 ![Funnel Metrics](images/funnel_metrics.png)
 
+This query calculates key conversion metrics in the e-commerce purchase funnel.
+It aggregates user interaction events from the Events table and measures how users move through the stages of the purchase journey.
+The funnel consists of three main stages:
+
+Product View → Add to Cart → Purchase
+Metrics Calculated
+
+Views
+Total number of product view events.
+
+Carts
+Total number of times users added products to their carts.
+
+Purchases
+Total number of completed purchase events.
+
+View to Cart Conversion Rate
+Percentage of product views that resulted in a cart addition.
+
+carts / views
+
+This indicates how effectively product pages encourage users to add items to their carts.
+
+Cart to Purchase Conversion Rate
+Percentage of carts that resulted in a completed purchase.
+
+purchases/carts
+
+This metric helps identify checkout friction and cart abandonment issues.
+
+View to Purchase Conversion Rate
+Percentage of product views that ultimately lead to a purchase.
+
+purchases/views
+
+This represents the overall effectiveness of the e-commerce funnel.
+
+Business Insight
+
+From the dataset analysis:
+
+A large number of users view products.
+
+Approximately 53% of views lead to cart additions, indicating strong product engagement.
+
+However, only about 23% of carts convert to purchases, suggesting potential cart abandonment during checkout.
+
+These insights help product teams identify opportunities to improve the checkout experience and increase conversion rates.
+
+SQL Query
+SELECT
+    SUM(CASE WHEN event_type = 'view' THEN 1 ELSE 0 END) AS views,
+    SUM(CASE WHEN event_type = 'cart' THEN 1 ELSE 0 END) AS carts,
+    SUM(CASE WHEN event_type = 'purchase' THEN 1 ELSE 0 END) AS purchases,
+
+    SUM(CASE WHEN event_type = 'cart' THEN 1 ELSE 0 END) * 1.0
+    /
+    SUM(CASE WHEN event_type = 'view' THEN 1 ELSE 0 END)
+    AS view_to_cart_conversion,
+
+    SUM(CASE WHEN event_type = 'purchase' THEN 1 ELSE 0 END) * 1.0
+    /
+    SUM(CASE WHEN event_type = 'cart' THEN 1 ELSE 0 END)
+    AS cart_to_purchase_conversion,
+
+    SUM(CASE WHEN event_type = 'purchase' THEN 1 ELSE 0 END) * 1.0
+    /
+    SUM(CASE WHEN event_type = 'view' THEN 1 ELSE 0 END)
+    AS view_to_purchase_conversion
+
+FROM Events;
+
+Result 
+![Conversion Rates](images/Conversion_rates.png)
+
