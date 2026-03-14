@@ -12,3 +12,11 @@ Results show that:
 - High remove_from_cart events suggest potential friction during checkout
 
 This insight helps product teams identify where users drop off in the purchasing journey.
+
+### Event Distribution
+
+This query analyzes how users interact with the e-commerce platform.
+
+Result:
+
+![Event Distribution](images/event_distribution.png)
