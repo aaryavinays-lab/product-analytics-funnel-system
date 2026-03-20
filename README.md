@@ -149,4 +149,9 @@ GROUP BY DATE(event_time)
 
 ORDER BY event_date;
 
+Result:
+![Daily Funnel](images/Daily_funnel.png)
+
+
+
 
