@@ -119,3 +119,34 @@ FROM Events;
 Result 
 ![Conversion Rates](images/Conversion_rates.png)
 
+## Daily Funnel Analysis
+
+This query analyzes user conversion trends over time by calculating daily unique users who viewed products and completed purchases.
+
+Insights:
+
+Conversion rates vary across days, indicating user behavior changes over time
+
+Helps identify high-performing vs low-performing days
+
+Useful for tracking the impact of product or marketing changes.
+
+SQL Query
+
+SELECT 
+    DATE(event_time) AS event_date,
+
+    COUNT(DISTINCT CASE WHEN event_type = 'view' THEN user_id END) AS viewed,
+
+    COUNT(DISTINCT CASE WHEN event_type = 'purchase' THEN user_id END) AS purchased,
+
+    COUNT(DISTINCT CASE WHEN event_type = 'purchase' THEN user_id END) * 1.0 /
+    NULLIF(COUNT(DISTINCT CASE WHEN event_type = 'view' THEN user_id END), 0) AS conversion
+
+FROM Events
+
+GROUP BY DATE(event_time)
+
+ORDER BY event_date;
+
+
