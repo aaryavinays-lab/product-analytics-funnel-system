@@ -175,6 +175,8 @@ Identifies categories with high interest but low purchase completion
 
 Helps prioritize product and UX improvements
 
+“Rows with missing category values were excluded to ensure accurate category-level insights.”
+
 Query:
 
 SELECT 
@@ -188,6 +190,8 @@ SELECT
     NULLIF(COUNT(DISTINCT CASE WHEN event_type = 'view' THEN user_id END), 0) AS conversion
 
 FROM Events
+
+WHERE category_code IS NOT NULL
 
 GROUP BY category_code
 
