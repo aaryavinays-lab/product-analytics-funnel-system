@@ -193,7 +193,7 @@ GROUP BY category_code
 
 ORDER BY conversion DESC;
 
-Result : [Category Segmentation]! (images/Category_Segmentation.png)
+Result : ![Category Segmentation](images/Category_Segmentation.png)
 
 
 
