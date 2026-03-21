@@ -152,6 +152,50 @@ ORDER BY event_date;
 Result:
 ![Daily Funnel](images/Daily_funnel.png)
 
+## Category Segmentation Analysis
+
+This query analyzes user conversion performance across different product categories.
+
+Business Objective:
+Identify which categories perform well in converting users from viewing to purchasing.
+
+Key Metrics:
+
+Users Viewed
+
+Users Purchased
+
+Conversion Rate
+
+Insights:
+
+Highlights high-performing categories with strong conversion
+
+Identifies categories with high interest but low purchase completion
+
+Helps prioritize product and UX improvements
+
+Query:
+
+SELECT 
+    category_code,
+
+    COUNT(DISTINCT CASE WHEN event_type = 'view' THEN user_id END) AS users_viewed,
+
+    COUNT(DISTINCT CASE WHEN event_type = 'purchase' THEN user_id END) AS users_purchased,
+
+    COUNT(DISTINCT CASE WHEN event_type = 'purchase' THEN user_id END) * 1.0 /
+    NULLIF(COUNT(DISTINCT CASE WHEN event_type = 'view' THEN user_id END), 0) AS conversion
+
+FROM Events
+
+GROUP BY category_code
+
+ORDER BY conversion DESC;
+
+Result: ![Category segmentation](images/Daily_funnel.png)
+
+
 
 
 
