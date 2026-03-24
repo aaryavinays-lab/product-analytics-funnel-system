@@ -1,6 +1,79 @@
 # Product-analytics-funnel-system
 Product analytics project analyzing user behavior across an e-commerce funnel using SQL and Power BI. Includes funnel conversion analysis, DAU metrics, and product performance insights.
 
+## E-Commerce Product Analytics Funnel (SQL + Power BI)
+
+This project analyzes user behavior across an e-commerce funnel to identify conversion bottlenecks, user drop-off patterns, and category-level performance gaps.
+
+The goal is to answer:
+Where do users drop off in the purchase journey?
+Which categories convert well vs poorly?
+Are conversion issues driven by user intent or checkout friction?
+
+## Key Business Findings
+High engagement: Majority of users interact with product pages
+Strong intent: ~50%+ users add items to cart
+Critical drop-off: Only ~25% of carts convert to purchases
+
+## This indicates checkout-stage friction, not lack of interest
+
+Category insight: Furniture-related categories show lowest conversion rates
+Trend insight: Conversion declines after specific dates despite stable traffic
+→ Suggests UX/payment/checkout issues, not demand problems
+Data quality finding:
+~1M records missing category values were identified and handled separately to avoid misleading analysis
+
+### Tools & Skills Used
+SQL (Aggregation, CASE, DISTINCT, NULL handling)
+Power BI (DAX, Measures, Funnel Analysis, Time Trends)
+Data Cleaning & Data Quality Handling
+Business Analysis & Insight Generation
+📊 Analysis Breakdown
+1. Event Distribution
+
+Analyzed user interaction types to understand engagement patterns
+→ Identified dominant actions and drop-off points
+
+2. Funnel Metrics
+
+Measured movement from:
+View → Cart → Purchase
+
+→ Quantified stage-wise user loss
+
+3. Conversion Rates
+
+Calculated:
+
+View → Cart
+Cart → Purchase
+View → Purchase
+
+→ Identified checkout friction
+
+4. Daily Trend Analysis
+
+Tracked conversion over time
+
+→ Found behavioral shifts and performance dips
+
+5. Category Segmentation
+
+Compared performance across product categories
+
+→ Identified high vs low performing segments
+
+6. Drop-off Analysis
+
+Analyzed cart abandonment and removal behavior
+
+→ Confirmed checkout as primary friction point
+
+### Data Considerations
+Missing category values (~1M rows) were identified
+These were excluded from category-level analysis
+Tracked separately as a data quality issue
+
 ### Event Distribution Analysis
 
 This query analyzes the distribution of user interaction events in the e-commerce platform.
