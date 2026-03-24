@@ -28,7 +28,8 @@ SQL (Aggregation, CASE, DISTINCT, NULL handling)
 Power BI (DAX, Measures, Funnel Analysis, Time Trends)
 Data Cleaning & Data Quality Handling
 Business Analysis & Insight Generation
-📊 Analysis Breakdown
+
+## Analysis Breakdown
 1. Event Distribution
 
 Analyzed user interaction types to understand engagement patterns
@@ -296,6 +297,12 @@ FROM Events;
 
 Result: Result : ![DropOff Analysis](images/Dropoff_Analysis.png)
 
+### Power BI Dashboard
+Funnel Overview
+
+Trend Analysis
+
+Category Performance
 
 
 
